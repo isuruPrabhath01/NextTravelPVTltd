@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Next Travel</title>
+    <link href="../assets/lib/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/admin.css" rel="stylesheet">
+</head>
+<body>
+<!--Start Header-->
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+        <!--Business Logo-->
+        <header>
+            <img src="../assets/img/logo.png" width="100" alt="logo">
+        </header>
+    </div>
+</header>
+<!--End Header-->
+
+<!--Start Sidebar-->
+<aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <!--Dashboard-->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="../adminSite/AdminDashboard.html"><span>Dashboard</span></a>
+        </li>
+        <!--Package-->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="../adminSite/ManagePackage.html" id="package"><span>Package</span> </a>
+        </li>
+        <!--Hotel-->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="../adminSite/ManageHotel.html" id="hotel"><span>Hotel</span></a>
+        </li>
+        <!--Vehicle-->
+        <li class="nav-item"> <a class="nav-link collapsed" href="../adminSite/ManageVehicle.html" id="vehicle">
+            <span>Vehicle</span></a></li>
+        <!--User-->
+        <li class="nav-item"><a class="nav-link collapsed" href="../adminSite/ManageUser.html" id="customer">
+            <span>User</span></a></li>
+        <!--Guide-->
+        <li class="nav-item"> <a class="nav-link " href="../adminSite/ManageGuide.html" id="guide">
+            <span>Guide</span></a></li>
+        <!--Report-->
+        <li class="nav-item"><a class="nav-link collapsed" href="../adminSite/Reports.html"><span>Report</span></a></li>
+        <!--Logout-->
+        <li style="margin-top: 165px" class="nav-item"><a class="nav-link collapsed" href="../pages/otherPage/LoginPage.html"><span>LogOut</span></a></li>
+    </ul>
+</aside>
+<main id="main" class="main">
+    <div class="pageTitle" id="pageOne">
+        <h1>Guide</h1>
+    </div>
+    <!-- End Page Title -->
+    <section class="section dashboard">
+        <div class="card-body">
+            <form  action="guide" id="guideFrom" method="post" >
+                <div class="row card-body"
+                     style="background-color: white;padding-top: 20px; border: 1px solid rgba(108,123,136,0.19);font-size: small;border-radius: 10px">
+                    <div class="row" style="margin-bottom: 30px">
+                        <div class="col input-group">
+                            <input type="search" id="searchbtn" class="form-control rounded" placeholder="Search for GuideId.." aria-label="Search" onkeyup="searchGuideId()"
+                                   aria-describedby="search-addon"/>
+                        </div>
+                        <div class="col" style="margin-left: 100px">
+                            <button class="btn btn-savebtn" id="saveGuidebtn" type="button"
+                                    formaction="driverForm">Save
+                            </button>
+                            <button type="button" class="btn btn-cancel" id="updateGuidebtn">Update
+                            </button>
+                            <button type="button" class="btn btn-delete" id="deleteGuidebtn">Delete</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <span class="span m-1">Guide ID</span>
+                            <input class="form-control" id="guideid" readonly
+                                   name="guide_id"
+                                   placeholder="NTG-001" type="text">
+
+                        </div>
+                        <div class="col">
+                            <span class="span m-1">Name</span>
+                            <input type="text" class="form-control" placeholder="" id="guideName"  name="guide_Name">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="col">
+                            <span class="span m-1">Address</span>
+                            <input type="text" class="form-control" placeholder="" id="guideAddress"  name="guide_Address">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="col">
+                            <span class="span m-1">Gender</span>
+                            <select class="form-control" id="guideGender" name="guide_Gender">
+                                <option value="">Select Gender</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                            <span class="span m-1">Number</span>
+                            <input type="text" class="form-control" placeholder=""  id="guideNumber" name="guide_Number">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="col">
+                            <span class="span m-1">Experience</span>
+                            <input type="text" class="form-control" placeholder="" id="guideExperience" name="guide_Experience">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="col">
+                            <span class="span m-1">Man-day Value</span>
+                            <input type="text" class="form-control" placeholder="" id="guideDayValue" name="guide_Day_Value">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                            <span class="span m-1">Image</span>
+                            <input class="form-control" id="GuideImage" type="file" name="Guide_Image">
+                            <span class="control-error"></span>
+                        </div>
+                        <div class="col">
+                            <span class="span m-1">NIC</span>
+                            <input class="form-control" id="NicImage" type="file" name="Nic_Image">
+                        </div>
+                        <div class="col">
+                            <span class="span m-1">Guide ID</span>
+                            <input class="form-control" id="GuideIDImage" type="file" name="Guide_ID_Image">
+                            <span class="control-error"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            <div class="row mt-2">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Number</th>
+                        <th scope="col">Experience</th>
+                        <th scope="col">Man-day Value</th>
+
+                    </tr>
+                    </thead>
+                    <tbody id="giudeTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="../assets/lib/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/lib/jquery-3.6.4.min.js"></script>
+<script src="../assets/js/GuideController.js"></script>
+<script src="../assets/js/Validation.js"></script>
+<script src="../assets/js/ValidationWithRegex.js"></script>
+</body>
+</html>

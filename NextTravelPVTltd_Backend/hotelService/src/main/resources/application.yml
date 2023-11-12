@@ -1,0 +1,37 @@
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+##Datasurce and DB configs
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nextTravelPVTHotelService?createDatabaseIfNotExist=true
+    username: root
+    password: 1234
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+
+  application:
+    name: HOTEL-SERVICE
+
+server:
+  port: 9081
+  servlet:
+    context-path: /nextTravelPVTLtdHotelService

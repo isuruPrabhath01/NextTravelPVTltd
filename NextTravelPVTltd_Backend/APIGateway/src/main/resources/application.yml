@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      routes:
+        - id: hotel-service
+          uri: lb://HOTEL-SERVICE
+          predicates:
+            - Path=/nextTravelPVTLtdHotelService/**
+          filters:
+            - AuthenticationFilter
+
+
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/nextTravelPVTLtdUserService/**
+          filters:
+            - AuthenticationFilter
+
+
+        - id: vehicle-service
+          uri: lb://VEHICLE-SERVICE
+          predicates:
+            - Path=/nextTravelPVTLtdVehicleService/**
+          filters:
+            - AuthenticationFilter
+
+
+        - id: package-service
+          uri: lb://PACKAGE-SERVICE
+          predicates:
+            - Path=/nextTravelPVTLtdTravelPackage/**
+          filters:
+            - AuthenticationFilter
+
+
+        - id: guide-service
+          uri: lb://GUIDE-SERVICE
+          predicates:
+            - Path=/nextTravelPVTLtdGuideService/**
+          filters:
+            - AuthenticationFilter
+
+
+
+
+        - id: authentication-service
+          uri: lb://AUTHENTICATION-SERVICE
+          predicates:
+            - Path=/authenticationServer/**
+
+
+
+
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+server:
+  port: 8989
+
+
+
+
+

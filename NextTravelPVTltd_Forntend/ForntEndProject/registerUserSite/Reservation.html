@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Booking</title>
+    <link rel="stylesheet" href="../assets/css/booking.css">
+    <link rel="stylesheet" href="../assets/lib/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <link href="../assets/css/admin.css" rel="stylesheet">
+
+</head>
+
+<body>
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+        <header>
+            <img src="../assets/img/logo.png" width="100">
+
+        </header>
+    </div>
+</header>
+<aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="../registerUserSite/RegisterUser.html"><span>Account</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="../registerUserSite/Reservation.html"><span>Reservation</span> </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="../registerUserSite/Booking.html"><span>Booking</span> </a>
+        </li>
+        <li class="nav-item"><a class="nav-link collapsed" href="../pages/otherPage/LoginPage.html"><span>LogOut</span></a>
+        </li>
+    </ul>
+</aside>
+<main id="main" class="main">
+    <section id="reservation" class="reservation ">
+        <div class="pageTitle" id="pageOne">
+            <h1>RESERVATION</h1>
+        </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 mt-lg-0 mt-5 mb-2"
+                 style="background-color: white;padding-top: 20px; border: 1px solid rgba(108,123,136,0.19);font-size: small;border-radius: 10px">
+                <form action="resevation" method="post" id="raservationDetails">
+                    <div class="col mb-4">
+                        <div class="row">
+                            <div class="col-4">
+                                <span class="span m-1">Reservation ID</span>
+                                <input class="form-control" id="bookingReservationId"
+                                       name="bookingReservation_Id"
+                                       placeholder="NTB-001" readonly>
+                            </div>
+                            <div class="col-4">
+                                <span class="span m-1">Customer ID</span>
+                                <input type="number" class="form-control" placeholder="" readonly
+                                       name="reservation_Customer_Id"
+                                       id="reservationCustomerId">
+                            </div>
+                            <div class="col-4">
+                                <span class="span m-1">Package</span>
+                                <select class="form-control" id="package_Category" name="package_Category"
+                                        type="text">
+                                    <!--option value="Regular">Regular</option>
+                                           <option value="Mid-Level">Mid-Level</option>
+                                           <option value="Luxury">Luxury</option>
+                                           <option value="SuperLuxury">Super Luxury</option>-->
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <span class="span m-1">Night Count</span>
+                                <input class="form-control" type="number" id="nightCount" name="night_Count"
+                                       readonly/>
+                            </div>
+                            <div class="col-4">
+                                <span class="span m-1">Day Count</span>
+                                <input class="form-control" type="number" id="dayCount" name="dayCount" readonly/>
+                            </div>
+                            <div class="col-4">
+                                <span class="span m-1">Date</span>
+                                <input class="form-control" type="text" id="date" readonly />
+                            </div>
+                            <div class="col-4">
+                                <span class="span m-1">Hotel ID</span>
+                                <select class="form-control" id="hotelID" name="hotel_id">
+                                    <!-- <option value="vehicle1">VRI-001</option>
+                                     <option value="vehicle2">VRI-002</option>
+                                     <option value="vehicle3">VRI-003</option>
+                                     <option value="vehicle4">VRI-004</option>
+                                     <option value="vehicle5">VRI-005</option>-->
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <span class="span m-1">Register ID</span>
+                                <select class="form-control" id="vehicleRegId" name="vehicle_Reg_Id">
+                                    <!-- <option value="vehicle1">VRI-001</option>
+                                     <option value="vehicle2">VRI-002</option>
+                                     <option value="vehicle3">VRI-003</option>
+                                     <option value="vehicle4">VRI-004</option>
+                                     <option value="vehicle5">VRI-005</option>-->
+                                </select>
+                            </div>
+                            <div class="col">
+                                <span class="span m-1">Location </span>
+                                <select class="form-control" name="hotel_Location" id="hotel_Location">
+                                    <option value="Kandy and Upcountry">Kandy and Upcountry</option>
+                                    <option value="Eastern Coast">Eastern Coast</option>
+                                    <option value="Eastern Coast">Anuradhapura</option>
+                                    <option value="Polonnaruwa">Polonnaruwa</option>
+                                    <option value="Capital Colomb">Capital Colombo</option>
+                                    <option value="Western Coas">Western Coast</option>
+                                    <option value="North Peninsula">North Peninsula</option>
+                                    <option value="Down South">Down South</option>
+                                    <option value="Sigiriya">Sigiriya</option>
+                                    <option value="Dambulla">Dambulla</option>
+                                    <option value="Matale">Matale</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+
+                        <div class="col">
+                            <span class="span m-1">Start Date</span>
+                            <input class="form-control" type="date" id="startDate"
+                                   name="start_Date"
+                                   value="YYYY-MM-DD" min="2023-10-01" max="2030-12-31"/>
+                        </div>
+                        <div class="col">
+                            <span class="span m-1">End Date</span>
+                            <input class="form-control" type="date" id="endDate"
+                                   name="end_Date"
+                                   value="YYYY-MM-DD" min="2023-10-01" max="2030-12-31"/>
+                        </div>
+                        <div class="col">
+                            <span class="span m-1">No of Adults</span>
+                            <input type="number" class="form-control" placeholder="" id="adults"
+                                   name="number_of_adults">
+                        </div>
+                        <div class="col">
+                            <span class="span m-1">No of Children</span>
+                            <input type="number" class="form-control" placeholder="" id="children"
+                                   name="number_of_children">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="mt-4 mb-3 d-grid gap-2 d-sm-flex">
+                <button class="btn btn-savebtn float-right" id="saveBookingbtn" type="button">Confirm</button>
+                <button type="button" class="btn btn-cancel  float-right"
+                   id="updateBookingbtn">Update</button>
+            </div>
+            <div class="row mt-2">
+                <table class="table" id="bookingDetailsTable">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Booking ID</th>
+                        <th scope="col">Package</th>
+                        <th scope="col">Hotel</th>
+                        <th scope="col">Vehicle</th>
+                        <th scope="col">Guide</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Full Payment</th>
+                    </tr>
+                    </thead>
+                    <tbody id="customerAccountBookingTable"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+</main>
+<script src="../assets/lib/bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/lib/jquery-3.6.4.min.js"></script>
+<script src="../assets/js/ReservationPage.js"></script>
+<script src="../assets/js/RegisterUserController.js"></script>
+<script src="../assets/js/Validation.js"></script>
+<script src="../assets/js/ValidationWithRegex.js"></script>
+</body>
+<script src="../../lib/jquery-3.6.4.min.js"></script>
+
+</html>

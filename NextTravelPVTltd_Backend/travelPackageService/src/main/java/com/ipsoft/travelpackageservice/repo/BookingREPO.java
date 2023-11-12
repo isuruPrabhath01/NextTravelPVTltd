@@ -1,0 +1,18 @@
+
+
+package com.ipsoft.travelpackageservice.repo;
+
+import com.ipsoft.travelpackageservice.entity.Booking;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
+
+public interface BookingREPO extends JpaRepository<Booking,String> {
+    @Query(value = "SELECT bookingId FROM Booking ORDER BY bookingId DESC LIMIT 1",nativeQuery = true)
+    String getLastIndex();
+    Booking findBookingByUserId(String userId);
+    List<Booking> findBookingsByUserId(String userId);
+    @Query(value = "SELECT COUNT(*) FROM Booking",nativeQuery=true)
+    int getCountOfBookings();
+}
